@@ -1,0 +1,57 @@
+
+
+a{
+    color: red;
+}
+
+
+.box1{background:url(../../static/img/2d34815ad2.png);width:200px}
+
+@font-face {
+  font-family: "iconfont"; /* Project id 3485012 */
+  src: url(../../static/media/22795dbd8f.woff2?t=1656165523756) format('woff2'),
+       url(../../static/media/2f6664fe13.woff?t=1656165523756) format('woff'),
+       url(../../static/media/47ec72120a.ttf?t=1656165523756) format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-3column:before {
+  content: "\e663";
+}
+
+.icon-column-4:before {
+  content: "\e664";
+}
+
+.icon-add:before {
+  content: "\e665";
+}
+
+.icon-add-circle:before {
+  content: "\e666";
+}
+
+.icon-huiyuan:before {
+  content: "\100da";
+}
+
+.icon-biji:before {
+  content: "\100db";
+}
+
+.icon-gerenzhongxin:before {
+  content: "\100dc";
+}
+
+.icon-shoucang:before {
+  content: "\100dd";
+}
+
+
