@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "i am a hero"
+        arr = str.split("")
+        console.log(arr);
+        let result = []
+
+        // // 通过forEach去除空元素
+        // arr.forEach(element => {
+        //     if (element !== " ") {
+        //         result.push(element)
+        //     }
+        // });
+        // 通过for of去除空元素
+        for (let key of arr) {
+            if (key !== ' ') {
+                result.push(key)
+            }
+        }
+        arrNum = [1, 2, 3, 4, 5, 6, 7, 8]
+        console.log(result);
+        // 数组去重
+        // 1.利用ES6中Set结构去重，并使用Array.from转化成数组
+        // console.log(Array.from(new Set(result)));
+        // 2.利用indexOf
+        const res =  arrNum.reduce((total,item)=>{
+            return total+item
+        })
+        console.log(res);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Father(age) {
+            this.age = age
+        }
+        function Son(age) {
+            Father.call(this);
+        }
+        Son.prototype = Father.prototype;
+        Father.prototype.getAge = function () { console.log(40); }
+        Son.prototype.getAge = function () { console.log(18); }
+        var father = new Father(40);
+        var son = new Son(18);
+        console.log(son.getAge());
+        console.log(father.getAge());
+    </script>
+</body>
+
+</html>
