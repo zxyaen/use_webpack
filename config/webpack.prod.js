@@ -2,6 +2,26 @@ const path = require("path")
 const ESLintPlugin = require("eslint-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+//封装loader函数
+function getLoader(opt) {
+    return [
+        MiniCssExtractPlugin.loader,
+        "css-loader", // 将 CSS 转化成 CommonJS 模块
+        {
+            loader: 'postcss-loader',
+            options: {
+                postcssOptions: {
+                    plugins: [
+                        "postcss-preset-env",
+                    ],
+                },
+            }
+        },
+        opt,
+    ].filter(Boolean)
+}
 
 
 module.exports = {
@@ -23,21 +43,12 @@ module.exports = {
             // 处理css
             {
                 test: /\.css$/,  //检测以css结尾文件
-                use: [
-
-                    MiniCssExtractPlugin.loader,   //提取css文件
-                    "css-loader",     //将css资源编译成commonjs的模块到js中
-                ]
+                use: getLoader(),
             },
             // 处理scss
             {
                 test: /\.s[ac]ss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    "css-loader", // 将 CSS 转化成 CommonJS 模块
-                    "sass-loader", // 将 Sass 编译成 CSS
-
-                ],
+                use: getLoader("sass-loader")
             },
             // 对图片的处理
             {
@@ -94,9 +105,10 @@ module.exports = {
         new MiniCssExtractPlugin(
             {
                 //指定输出路径和名称
-                filename:"static/css/main.css"
+                filename: "static/css/main.css"
             }
         ),
+        new CssMinimizerPlugin(),
     ],
 
     // 模式
